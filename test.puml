@@ -1,0 +1,28 @@
+@startuml
+class InMemoryModel.ModelStore {
++ List<PoligonModel> models
++ List<Scene> scenes
++ List<Flash> flashes
++ List<Camera> cameras
+- List<iModelChangeObserver> changeObservers
++ void NitifyChange(IModelChanger)
+}
+interface InMemoryModel.IModelChanger {
++ void NitifyChange(IModelChanger)
+}
+class ModelElements.PoligonalModel {
+}
+interface InMemoryModel.iModelChangeObserver {
++ void ApplyUpdateModel()
+}
+class Main {
++ {static} void main(String[])
+}
+class ModelElements.Poligon {
+}
+class ModelElements.Texture {
+}
+
+
+InMemoryModel.IModelChanger <|.. InMemoryModel.ModelStore
+@enduml
