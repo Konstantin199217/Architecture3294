@@ -1,5 +1,8 @@
 package ModelElements;
 
+import Stuff.Angle3D;
+import Stuff.Point3D;
+
 import java.awt.*;
 import java.util.List;
 
@@ -8,6 +11,8 @@ public class Flash {
     public Angle3D angle;
     public Color color;
     public float power;
+
+
 
     public void rotate(Angle3D angle){
     }
