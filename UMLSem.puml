@@ -1,0 +1,64 @@
+@startuml
+abstract class Classes.Car {
+- String make
+- String model
+- Color color
+- TypeCar bodyType
+- int numberWheels
+- TypeFuel fuel
+- TypeGearbox gearbox
+- float engineCap
++ void movement()
++ void maintenance()
++ void setMake(String)
++ void setModel(String)
++ void setColor(Color)
++ void setBodyType(TypeCar)
++ void setNumberWheels(int)
++ void setFuel(TypeFuel)
++ void setGearbox(TypeGearbox)
++ void setEngineCap(float)
++ String getMake()
++ String getModel()
++ Color getColor()
++ TypeCar getBodyType()
++ int getNumberWheels()
++ TypeFuel getFuel()
++ TypeGearbox getGearbox()
++ float getEngineCap()
++ {abstract}int gearShift(int)
++ boolean turnLight()
++ boolean trnWprs()
+}
+enum Classes.TypeGearbox {
++  AT
++  MT
+}
+interface Classes.iWiping {
+~ void wipWindshield()
+~ void wipHeadlight()
+~ void wipMirrors()
+}
+enum Classes.TypeCar {
++  SEDAN
++  PICUP
+}
+enum Classes.TypeFuel {
++  gasoline
++  diesel
+}
+class Classes.Pickup {
+- int loadСapacity
++ void setLoadСapacity(int)
++ int getLoadСapacity()
++ int gearShift(int)
++ void fuel()
+}
+interface Classes.iRefueling {
+~ void fuel()
+}
+
+
+Classes.iRefueling <|.. Classes.Pickup
+Classes.Car <|-- Classes.Pickup
+@enduml

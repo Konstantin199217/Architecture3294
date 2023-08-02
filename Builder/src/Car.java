@@ -1,4 +1,4 @@
-public class Car {
+public class Car { // Продукт
     public void buildBase() {
         print("Делаем корпус");
     }
