@@ -36,11 +36,10 @@ public class CashProvider {
      * @throws RuntimeException
      */
     public boolean buy(Ticket ticket)throws RuntimeException{
-        Carrier carrier = carrierRepository.read(1);
-        if (carrier == null){
-            throw new RuntimeException("Exceptions!");
-        }
-        return  cashRepository.transaction(ticket.getPrice(), cardNumber, carrier.getCardNumber());
+        if (isAuthorized) {
+            Carrier carrier = carrierRepository.read(1);
+            return cashRepository.transaction(ticket.getPrice(), cardNumber, carrier.getCardNumber());
+        }return false;
     }
     // подсказка  Carrier carrier = carrierRepository.read(1);
     // подсказка  return cashRepository.transaction(ticket.getPrice(), cardNumber, carrier.getCardNumber());
@@ -51,8 +50,9 @@ public class CashProvider {
      *
      * @param client
      */
-    public boolean authorization (User client){
-        return client.equals(client);
+    public void authorization (User client){
+        cardNumber = client.getCardNumber();
+        isAuthorized = true;
     }
 
 }
