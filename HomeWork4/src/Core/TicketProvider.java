@@ -26,11 +26,7 @@ public class TicketProvider {
      * @throws RuntimeException
      */
     public List<Ticket> getTickets(int routeNumber)throws RuntimeException{
-        List<Ticket> tickets = TicketRepository.getTicketRepository().readAll(routeNumber);
-        if (tickets.isEmpty()) {
-            throw new RuntimeException("No tickets");
-        }
-        return tickets;
+        return TicketRepository.getTicketRepository().readAll(routeNumber);
     }
 
 
