@@ -4,5 +4,5 @@ import Data.Product;
 import Logic.Order;
 
 public interface PaymentCard {
-    PaymentCard pay(Order order);
+    PaymentCard pay(Order order, int card);
 }

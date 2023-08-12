@@ -1,27 +1,33 @@
 package Performance;
 
 import Data.Product;
+import Logic.BuyOrder;
 import Logic.Delivery;
+import Logic.FindProductName;
 import Logic.Order;
 
 public class Button implements IButton{
     @Override
-    public IButton find() {
-        return null;
+    public Product find(Product product) {
+        FindProductName findProduct = new FindProductName();
+        findProduct.Find(product);
+        return product;
     }
 
-    @Override
-    public IButton addProduct() {
-        return null;
+    public Order addProduct(Product product) {
+        Order order = new Order();
+        order.addProductOrder(product);
+        return order;
     }
 
-    @Override
-    public IButton setDelivery() {
-        return null;
+    public Delivery setDelivery(String address, Order order) {
+        Delivery delivery = new Delivery(address, order.getIdOrder());
+        return delivery;
     }
 
-    @Override
-    public IButton payOrder() {
-        return null;
+    public BuyOrder payOrder(Order order, int card) {
+        BuyOrder buyOrder = new BuyOrder();
+        buyOrder.pay(order,card);
+        return buyOrder;
     }
 }
