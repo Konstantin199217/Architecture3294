@@ -1,0 +1,75 @@
+@startuml
+class Logic.FindProductName {
++ FindProduct Find(Product)
+}
+class Data.DataBase {
+~ List<Product> products
+~ DataBase inst
+~ {static} DataBase getInstance()
++ List<Product> getProducts()
+}
+class Performance.Button {
+~ boolean push
+}
+class Performance.Menu {
+}
+class Logic.Delivery {
+~ String address
+~ int IdOrder
++ void setAddress(String)
++ void setIdOrder(int)
+}
+interface Logic.Interface.PaymentCash {
+~ PaymentCash payCash(Order)
+}
+class Main {
++ {static} void main(String[])
+}
+class Data.Product {
+~ int Id
+~ float price
+~ String name
+~ String description
++ void setPrice(float)
++ void setName(String)
++ void setDescription(String)
++ int getId()
++ float getPrice()
++ String getName()
++ String getDescription()
+}
+interface Logic.Interface.FindProduct {
+~ FindProduct Find(Product)
+}
+class Data.PRepository {
+~ DataBase DataRepo
+- void showAllProduct(DataBase)
+- void addProduct(Product)
+- void deleteProduct(Product)
+- void newPrice(Product,long)
+}
+class Logic.Order {
+~ List<Product> order
+~ int IdOrder
+~ long priceOrder
++ void setPriceOrder(long)
++ long getPriceOrder()
++ int getIdOrder()
++ void setIdOrder(int)
++ void addProductOrder(Product)
+}
+interface Performance.IButton {
+}
+class Logic.BuyOrder {
++ PaymentCard pay(Order)
++ PaymentCash payCash(Order)
+}
+interface Logic.Interface.PaymentCard {
+~ PaymentCard pay(Order)
+}
+
+
+Logic.Interface.FindProduct <|.. Logic.FindProductName
+Logic.Interface.PaymentCard <|.. Logic.BuyOrder
+Logic.Interface.PaymentCash <|.. Logic.BuyOrder
+@enduml
